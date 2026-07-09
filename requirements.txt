@@ -3,4 +3,4 @@ streamlit
 plotly
 pyarrow
 gc
-os
+fsspec
