@@ -11,22 +11,25 @@ def load_data():
     Includes graceful error handling for missing files.
     """
     file_path = "https://huggingface.co/datasets/100rya-py/credit-risk-dashboard/resolve/main/loan_cleaned.parquet?download=true"
-    drop_cols = [ #reducing noise
-        'id', 'member_id', 'url', 'desc', 'emp_title', 'title', 'zip_code', 
-        'policy_code', 'pymnt_plan', 'application_type', 'initial_list_status',
-        'funded_amnt', 'funded_amnt_inv', 'out_prncp', 'out_prncp_inv', 
-        'total_pymnt', 'total_pymnt_inv', 'total_rec_prncp', 'total_rec_int',
-        'total_rec_late_fee', 'recoveries', 'collection_recovery_fee',
-        'last_pymnt_d', 'last_pymnt_amnt', 'next_pymnt_d', 'last_credit_pull_d'
+    col_names=[
+        'loan_amnt', 
+        'term', 
+        'int_rate', 
+        'grade', 
+        'home_ownership',
+        'annual_inc', 
+        'loan_status', 
+        'dti', 
+        'purpose'
     ]
     
     try:
-        df = pd.read_parquet(file_path,engine='pyarrow')
+        df = pd.read_parquet(file_path,engine='pyarrow',columns = col_names)
         """
         Calculates the global baseline default rate of the portfolio.
         This acts as the 'Visual Anchor' for all our risk assessments.
         """
-        df.drop(columns=drop_cols, errors='ignore', inplace=True)
+       
 
         #creating bad_loan column for statistical analysis
         bad_statuses = ['Charged Off',
