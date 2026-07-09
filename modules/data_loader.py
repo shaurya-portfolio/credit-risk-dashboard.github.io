@@ -20,7 +20,8 @@ def load_data():
         'annual_inc', 
         'loan_status', 
         'dti', 
-        'purpose'
+        'purpose',
+        'issue_d'
     ]
     
     try:
