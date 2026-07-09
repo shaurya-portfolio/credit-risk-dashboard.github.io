@@ -10,7 +10,7 @@ def load_data():
     Loads the optimized parquet file from the data directory.
     Includes graceful error handling for missing files.
     """
-    file_path = os.path.join("data","loan_cleaned.parquet")
+    file_path = "https://huggingface.co/datasets/100rya-py/credit-risk-dashboard/resolve/main/loan_cleaned.parquet?download=true"
     drop_cols = [ #reducing noise
         'id', 'member_id', 'url', 'desc', 'emp_title', 'title', 'zip_code', 
         'policy_code', 'pymnt_plan', 'application_type', 'initial_list_status',
