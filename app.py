@@ -102,7 +102,7 @@ if st.session_state["active_tab"] == "Executive Overview": # to prevent the rema
             }
         ))
         gauge_fig.update_layout(height=200, margin=dict(l=10, r=10, t=50, b=5), paper_bgcolor='rgba(0,0,0,0)', font={'color': "black"})
-        st.plotly_chart(gauge_fig, use_container_width=True)    
+        st.plotly_chart(gauge_fig, width=True)    
         st.subheader("Portfolio Distribution: Good V/s Bad Loans")
         status_counts = display_df['bad_loan'].value_counts().reset_index()
         status_counts.columns = ['Loan_Status', 'Count']
@@ -117,7 +117,7 @@ if st.session_state["active_tab"] == "Executive Overview": # to prevent the rema
         fig.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',showlegend=False,
             transition_duration=500,hovermode="x unified")
 
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width=True)
 
         st.subheader("Time Series Trend: Default Rate Over Time")
 
@@ -135,7 +135,7 @@ if st.session_state["active_tab"] == "Executive Overview": # to prevent the rema
                     xaxis_title="Time Period",yaxis_title="Default Rate",hovermode="x unified",
                     margin=dict(l=0, r=0, t=30, b=0)
                 )
-            st.plotly_chart(fig_trend,use_container_width=True)
+            st.plotly_chart(fig_trend,width=True)
 
 elif st.session_state["active_tab"] == "Statistical Analysis":
     with tab2:
@@ -170,7 +170,7 @@ elif st.session_state["active_tab"] == "Statistical Analysis":
                 fig2.update_layout(plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)',xaxis_title=f"Categories of {selected_feature.title()}",
                 yaxis_title="WoE Score"
                 )
-                st.plotly_chart(fig2, use_container_width=True)
+                st.plotly_chart(fig2, width=True)
 elif st.session_state["active_tab"] == "Live Risk Calculator":
     with tab3:
         st.header("Live Interactive Risk Calculator")
